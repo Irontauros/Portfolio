@@ -1,0 +1,128 @@
+
+body {
+    font-family: 'Roboto', sans-serif; /*fallback??? */
+    margin: 0; /* margin??? */
+    padding: 0; /* padding??? */
+    display: flex; /* Using flexbox for layout??? */
+    flex-direction: column; /* Arranging children elements vertically ???*/
+    min-height: 100vh; /* Ensuring the body takes at least the full viewport height??? */
+    background: linear-gradient(to right, #d3b0ef, #333);
+    color: #333;
+}
+
+#welcome-screen {
+    position: fixed; /* Fixing the position to the screen */
+    top: 0; /* Aligning the screen to the top */
+    left: 0; /* Aligning the screen to the left */
+    width: 100%; /* Making it take the full width of the viewport */
+    height: 100%; /* Making it take the full height of the viewport */
+    display: flex; /* Using flexbox to center content */
+    justify-content: center; /* Aligning content horizontally in the center */
+    align-items: center; /* Aligning content vertically in the center */
+    background: rgba(51, 51, 51, 0.9); /* Semi-transparent black background */
+    z-index: 9999; /* Ensuring it stays on top of other elements */
+    opacity: 1; /* Initial opacity */
+    animation: fadeOut 1s ease-in-out forwards 1s; /* Fading out after 3 seconds with a 3-second animation */
+}
+
+#welcome-screen h1 {
+    color: white; 
+    font-size: 4em; /* em??? */
+    animation: fadeIn 2s ease-in-out, moveUp 2s ease-in-out 2s forwards; /*easy in out??? forwards??? */
+}
+
+/* Menu Screen */
+#menu-screen {
+    display: none;  /* Initially hidden */
+    flex-direction: column; /* Arranging menu options vertically */
+    justify-content: center; /* Aligning content vertically in the center */
+    align-items: center; /* Aligning content horizontally in the center */
+    height: 100vh; /* Making the screen take full height */
+    text-align: center; /* Centering text */
+}
+
+#menu-screen.active {
+    display: flex;  /* Displaying the menu when the 'active' class is added */
+}
+
+#menu-screen h1 {
+    font-size: 3em; /* Setting a large font size for the heading */
+    margin-bottom: 30px; /* Adding space below the heading */
+}
+
+.menu-options button {
+    margin: 10px; /* Spacing out the buttons */
+    padding: 15px 30px; /* Adding padding inside the buttons */
+    font-size: 1.5em; /* Increasing the font size */
+    background: #333; /* Dark background for the buttons */
+    color: #fff; /* White text color */
+    border: none; /* Removing the border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Changing cursor to pointer to indicate interactivity */
+    transition: transform 0.3s, background-color 0.3s; /* Adding smooth transition effects for scaling and color changes */
+}
+
+.menu-options button:hover {
+    background: #d3b0ef; /* Light purple background on hover */
+    transform: scale(1.1); /* Slightly enlarging the button on hover */
+}
+
+/* Header and Portfolio */
+header {
+    position: sticky; /* Making the header stick to the top */
+    top: 0; /* Aligning it to the top of the viewport */
+    background: #333; /* Dark background for the header */
+    color: white; /* White text color */
+    padding: 20px 0; /* Vertical padding */
+    display: none; /* Initially hidden */
+}
+
+header.active {
+    display: block; /* Displaying the header when the 'active' class is added */
+}
+
+main {
+    display: none; /* Initially hiding the main content */
+}
+
+main.active {
+    display: block; /* Displaying the main content when the 'active' class is added */
+}
+
+/* Footer */
+footer {
+    text-align: center; /* Centering the text */
+    background: black; /* Black background for the footer */
+    color: white; /* White text color */
+    padding: 20px; /* Padding around the footer content */
+    margin-top: auto; /* Pushing the footer to the bottom of the page */
+}
+
+/* Animations */
+@keyframes fadeIn {
+    0% {
+        opacity: 0; /* Starting from fully transparent */
+    }
+    100% {
+        opacity: 1; /* Ending fully opaque */
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1; /* Starting from fully opaque */
+    }
+    100% {
+        opacity: 0; /* Ending fully transparent */
+        visibility: hidden; /* Hiding the element completely */
+    }
+}
+
+@keyframes moveUp {
+    0% {
+        transform: translateY(0); /* Starting position */
+    }
+    100% {
+        transform: translateY(-50px); /* Moving the element 50px upwards */
+    }
+}

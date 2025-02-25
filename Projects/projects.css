@@ -1,0 +1,262 @@
+/* General Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: linear-gradient(to right, #d87f23, #333);
+    color: #333;
+}
+
+/* Header */
+header {
+    position: sticky;
+    top: 0;
+    background: #333;
+    color: white;
+    padding: 20px 0;
+    z-index: 1000;
+}
+
+header h1 {
+    font-size: 2.5em;
+    text-align: center;
+    margin: 0;
+}
+
+header nav {
+    text-align: center;
+    margin-top: 10px;
+}
+
+header nav a {
+    color: #d87f23;
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1em;
+    transition: color 0.3s ease;
+}
+
+header nav a:hover {
+    color: white;
+}
+
+/* Sections */
+section {
+    padding: 60px 20px;
+    background: rgba(255, 255, 255, 0.8);
+    margin: 20px auto;
+    max-width: 1200px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    scroll-margin-top: 100px;
+}
+
+section h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Certificates Section */
+#images {
+    text-align: center;
+    margin: 20px auto;
+}
+
+.images-carousel {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 0;
+}
+
+.images-display {
+    display: flex;
+    transition: transform 0.5s ease;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+}
+
+.images-display img {
+    max-width: 80%;
+    max-height: 500px;
+    object-fit: cover;
+    display: none;
+}
+
+.images-display img.active {
+    display: block;
+    margin: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Arrow Buttons */
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 10;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    opacity: 0.8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.left-arrow {
+    left: 20px;
+}
+
+.right-arrow {
+    right: 20px;
+}
+
+.arrow:hover {
+    opacity: 1;
+    transform: translateY(-50%) scale(1.1);
+    background: rgba(255, 255, 255, 0.7);
+    color: black;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .arrow {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+    
+    .certificate-display img {
+        max-width: 90%;
+        max-height: 300px;
+    }
+}
+
+/* Video Section */
+#video {
+    text-align: center;
+    margin: 20px auto;
+    padding: 60px 20px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 1200px;
+}
+
+#video h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.video-carousel {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.video-display video {
+    display: none;
+}
+
+.video-display video.active {
+    display: block;
+}
+
+/* Back Button */
+#back-button {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    padding: 10px 20px;
+    background: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.5em;
+    z-index: 1001;
+    transition: background-color 0.3s ease;
+}
+
+#back-button:hover {
+    background: #d87f23;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    background: black;
+    color: white;
+    padding: 20px;
+    margin-top: auto;
+}
+
+/* Projects Button */
+#projects-button {
+    display: inline-block;
+    font-size: 22px;
+    padding: 18px 30px;
+    margin: 20px auto;
+    background-color: #d87f23;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#projects-button:hover {
+    background-color: #b5671b;
+    transform: scale(1.08);
+}
+
+/* Centering the button inside the Projects section */
+#projects {
+    text-align: center;
+}
+
+/* Download Button */
+.download-button {
+    display: block;
+    width: fit-content;
+    margin: 20px auto;
+    padding: 15px 30px; /* Increased padding for bigger buttons */
+    font-size: 22px; /* Larger font size */
+    background-color: #d87f23;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 8px;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.download-button:hover {
+    background-color: #b5671b;
+    transform: scale(1.08);
+}
+
+/* Focus effect for accessibility */
+.download-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(216, 127, 35, 0.6);
+}

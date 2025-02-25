@@ -1,0 +1,315 @@
+/* General Styles */
+/* Applies basic styling to the entire document */
+body {
+    font-family: 'Roboto', sans-serif; /* Sets the default font family to 'Roboto' or a fallback sans-serif */
+    margin: 0; /* Removes default margin from the body */
+    padding: 0; /* Removes default padding from the body */
+    display: flex; /* Enables Flexbox layout for flexible and efficient alignment of items */
+    flex-direction: column; /* Aligns children in a vertical column */
+    min-height: 100vh; /* Ensures the page height is at least equal to the viewport height */
+    background: linear-gradient(to right, #65c756, #333); /* Creates a gradient background from green to dark gray */
+    color: #333; /* Sets the default text color to dark gray */
+}
+
+/* Header */
+/* Styles for the top section of the page */
+header {
+    position: sticky; /* Keeps the header fixed at the top during scrolling */
+    top: 0; /* Positions it at the very top of the page */
+    background: #333; /* Sets a dark gray background */
+    color: white; /* Sets text color to white for contrast */
+    padding: 20px 0; /* Adds vertical padding to create spacing */
+    z-index: 1000; /* Ensures the header stays above other content */
+}
+
+/* Styling the main header title */
+header h1 {
+    font-size: 2.5em; /* Increases the font size of the main title */
+    text-align: center; /* Aligns the title text to the center */
+    margin: 0; /* Removes default margin around the title */
+}
+
+/* Navigation bar inside the header */
+header nav {
+    text-align: center; /* Centers the navigation links horizontally */
+    margin-top: 10px; /* Adds spacing above the navigation links */
+}
+
+/* Individual navigation links */
+header nav a {
+    color: #65c756; /* Sets the text color to green */
+    margin: 0 15px; /* Adds horizontal spacing between links */
+    text-decoration: none; /* Removes underline from links */
+    font-weight: bold; /* Makes the link text bold */
+    font-size: 1.1em; /* Slightly increases the font size */
+    transition: color 0.3s ease; /* Adds a smooth transition effect when the link color changes */
+}
+
+/* Hover effect for navigation links */
+header nav a:hover {
+    color: white; /* Changes the link text color to white when hovered over */
+}
+
+/* Sections */
+/* Styles for content sections on the page */
+section {
+    padding: 60px 20px; /* Adds internal spacing inside the section */
+    background: rgba(255, 255, 255, 0.8); /* Sets a semi-transparent white background */
+    margin: 20px auto; /* Centers the section horizontally and adds vertical spacing */
+    max-width: 1200px; /* Restricts the section width to a maximum value */
+    border-radius: 10px; /* Rounds the corners for a smooth look */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow for depth */
+    scroll-margin-top: 100px; /* Adjusts the scroll offset for in-page navigation */
+}
+
+/* Section titles */
+section h2 {
+    font-size: 2em; /* Increases the font size of section headings */
+    margin-bottom: 20px; /* Adds spacing below the heading */
+    text-align: center; /* Centers the section heading */
+}
+
+/* Certificates Section */
+/* Additional styling for the certificates section */
+#certificates {
+    text-align: center; /* Centers the content inside this section */
+    margin: 20px auto; /* Adds vertical and horizontal spacing */
+}
+
+/* Carousel container for certificates */
+.certificate-carousel {
+    position: relative; /* Allows absolute positioning for child elements */
+    max-width: 800px; /* Restricts the maximum width of the carousel */
+    margin: 0 auto; /* Centers the carousel horizontally */
+    overflow: hidden; /* Hides content that overflows outside the carousel */
+    padding: 0; /* Removes internal spacing */
+}
+
+/* Display area for certificate images */
+.certificate-display {
+    display: flex; /* Uses Flexbox to align images */
+    transition: transform 0.5s ease; /* Adds smooth sliding transition when changing images */
+    position: relative; /* Ensures proper positioning of child elements */
+    justify-content: center; /* Centers the images horizontally */
+    align-items: center; /* Centers the images vertically */
+}
+
+/* Individual certificate images */
+.certificate-display img {
+    max-width: 80%; /* Limits the image width to 80% of the container */
+    max-height: 500px; /* Restricts the image height */
+    object-fit: cover; /* Ensures the image fits well without distortion */
+    display: none; /* Hides all images by default */
+}
+
+/* Active certificate image */
+.certificate-display img.active {
+    display: block; /* Displays only the currently active image */
+    margin: auto; /* Centers the image */
+    border-radius: 10px; /* Rounds the image corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds a shadow for depth */
+}
+
+/* Arrow Buttons */
+/* General styles for navigation arrows */
+.arrow {
+    position: absolute; /* Positions arrows relative to the parent container */
+    top: 50%; /* Aligns the arrow vertically at the center */
+    transform: translateY(-50%); /* Centers the arrow exactly */
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+    color: white; /* White text color for contrast */
+    border: none; /* Removes default border */
+    width: 50px; /* Sets width for a circular shape */
+    height: 50px; /* Sets height for a circular shape */
+    font-size: 1.5rem; /* Adjusts the arrow size */
+    cursor: pointer; /* Changes cursor to a pointer on hover */
+    z-index: 10; /* Ensures arrows stay above the content */
+    border-radius: 50%; /* Rounds the arrows into perfect circles */
+    transition: all 0.3s ease; /* Smooth hover effect */
+    opacity: 0.8; /* Slight transparency for arrows */
+    display: flex; /* Flexbox layout for centering arrow icons */
+    justify-content: center; /* Centers the arrow icon horizontally */
+    align-items: center; /* Centers the arrow icon vertically */
+}
+
+/* Left Arrow */
+.left-arrow {
+    left: 20px; /* Positions the left arrow */
+}
+
+/* Right Arrow */
+.right-arrow {
+    right: 20px; /* Positions the right arrow */
+}
+
+/* Hover Effect for Arrows */
+.arrow:hover {
+    opacity: 1; /* Makes the arrow fully opaque */
+    transform: translateY(-50%) scale(1.1); /* Enlarges the arrow slightly */
+    background: rgba(255, 255, 255, 0.7); /* Lightens the background */
+    color: black; /* Changes arrow color for contrast */
+}
+
+/* Responsive Adjustments */
+/* Styles for screens smaller than 768px */
+@media (max-width: 768px) {
+    .arrow {
+        width: 40px; /* Reduces arrow size for smaller screens */
+        height: 40px; /* Adjusts arrow height */
+        font-size: 1.2rem; /* Adjusts font size */
+    }
+
+    .certificate-display img {
+        max-width: 90%; /* Increases image size relative to container */
+        max-height: 300px; /* Reduces height for smaller screens */
+    }
+}
+
+/* Video Section */
+/* Styles for the video section */
+#video {
+    text-align: center; /* Centers the content in the video section */
+    margin: 20px auto; /* Adds vertical and horizontal spacing, centers the section */
+    padding: 60px 20px; /* Adds internal spacing inside the section */
+    background: rgba(255, 255, 255, 0.8); /* Sets a semi-transparent white background */
+    border-radius: 10px; /* Rounds the corners of the section */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow for depth */
+    max-width: 1200px; /* Restricts the maximum width of the section */
+}
+
+/* Section heading for the video section */
+#video h2 {
+    font-size: 2em; /* Sets a large font size for the heading */
+    margin-bottom: 20px; /* Adds spacing below the heading */
+}
+
+/* Container for the video carousel */
+.video-carousel {
+    position: relative; /* Allows positioning of child elements relative to this container */
+    max-width: 800px; /* Restricts the carousel's maximum width */
+    margin: 0 auto; /* Centers the carousel horizontally */
+    overflow: hidden; /* Hides content that overflows outside the container */
+}
+
+/* Individual videos in the carousel */
+.video-display video {
+    display: none; /* Hides all videos by default */
+}
+
+/* Active video in the carousel */
+.video-display video.active {
+    display: block; /* Displays only the currently active video */
+}
+
+/* General Arrow Styles */
+/* Styles for navigation arrows in the video carousel */
+.arrow {
+    position: absolute; /* Positions the arrow within the container */
+    top: 50%; /* Centers the arrow vertically */
+    transform: translateY(-50%); /* Adjusts the position to exactly center it */
+    background: rgba(0, 0, 0, 0.5); /* Sets a semi-transparent black background */
+    color: white; /* Sets the arrow color to white for visibility */
+    border: none; /* Removes default border styling */
+    width: 50px; /* Sets the width for a circular shape */
+    height: 50px; /* Sets the height for a circular shape */
+    font-size: 1.5rem; /* Sets the size of the arrow icon */
+    cursor: pointer; /* Changes the cursor to a pointer on hover */
+    border-radius: 50%; /* Makes the arrow shape circular */
+    display: flex; /* Flexbox layout for centering the arrow icon */
+    justify-content: center; /* Centers the arrow icon horizontally */
+    align-items: center; /* Centers the arrow icon vertically */
+    z-index: 10; /* Ensures the arrows appear above other content */
+    opacity: 0.8; /* Adds slight transparency to the arrows */
+}
+
+/* Left arrow for the video carousel */
+.arrow.left-arrow {
+    left: 10px; /* Positions the left arrow 10px from the left edge */
+}
+
+/* Right arrow for the video carousel */
+.arrow.right-arrow {
+    right: 10px; /* Positions the right arrow 10px from the right edge */
+}
+
+/* Hover Effect for Arrows */
+.arrow:hover {
+    opacity: 1; /* Makes the arrow fully opaque on hover */
+    transform: translateY(-50%) scale(1.1); /* Slightly enlarges the arrow */
+    background: rgba(255, 255, 255, 0.7); /* Lightens the background color */
+    color: black; /* Changes the arrow color for better contrast */
+}
+
+/* Responsive Adjustments */
+/* Styles for smaller screens */
+@media (max-width: 768px) {
+    .arrow {
+        width: 40px; /* Reduces the arrow size */
+        height: 40px; /* Adjusts height proportionally */
+        font-size: 1.2rem; /* Reduces the font size of the arrow icon */
+    }
+
+    .video-display video {
+        max-height: 300px; /* Restricts the height of videos for smaller screens */
+    }
+}
+
+/* Back Button */
+/* Styles for the back button */
+#back-button {
+    position: fixed; /* Keeps the button fixed in the viewport */
+    top: 20px; /* Positions the button 20px from the top edge */
+    left: 20px; /* Positions the button 20px from the left edge */
+    padding: 10px 20px; /* Adds internal spacing for better button size */
+    background: #333; /* Sets a dark gray background */
+    color: white; /* Sets the button text color to white */
+    border: none; /* Removes default border */
+    border-radius: 5px; /* Rounds the button corners */
+    cursor: pointer; /* Changes cursor to pointer on hover */
+    font-size: 1.5em; /* Sets the font size for the button text */
+    z-index: 1001; /* Ensures the button stays above other elements */
+    transition: background-color 0.3s ease; /* Smooth transition effect for hover */
+}
+
+/* Hover Effect for Back Button */
+#back-button:hover {
+    background: #65c756; /* Changes background color to green on hover */
+}
+
+/* Footer */
+/* Styles for the footer */
+footer {
+    text-align: center; /* Centers the footer content horizontally */
+    background: black; /* Sets the footer background color to black */
+    color: white; /* Sets the footer text color to white */
+    padding: 20px; /* Adds internal spacing inside the footer */
+    margin-top: auto; /* Ensures the footer is pushed to the bottom of the page */
+}
+
+/* Projects Button */
+#projects-button {
+    display: inline-block;
+    font-size: 20px;
+    padding: 15px 25px;
+    margin: 20px auto;
+    background-color: #65c756; /* Green color */
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Hover Effect */
+#projects-button:hover {
+    background-color: #4da543; /* Darker green */
+    transform: scale(1.05);
+}
+
+/* Centering the button inside the Projects section */
+#projects {
+    text-align: center;
+}
