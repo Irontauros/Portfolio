@@ -1,47 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
-    <link rel="stylesheet" href="main.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Portfolio</title>
+  <link rel="stylesheet" href="main.css">
 </head>
 
 <body>
-    <div id="welcome-screen">
-        <h1>Welcome</h1>
+  <div id="welcome-screen">
+    <h1>Welcome</h1>
+  </div>
+
+  <div id="menu-screen" class="hidden">
+    <h1>Choose What You Want</h1>
+    <div class="menu-options">
+      <button onclick="location.href='../IT/it.html'">IT</button>
+      <button onclick="location.href='../Fitness/fitness.html'">Fitness</button>
+      <button onclick="showCertificates()">View Certificates</button>
     </div>
+  </div>
 
-    <div id="menu-screen" class="hidden">
-        <h1>Choose What You Want</h1>
-        <div class="menu-options">
-            <!DOCTYPE html>
-            <html lang="en">
-            <head>
-                <meta charset="UTF-8">
-                <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <title>Main Page</title>
-                <link rel="stylesheet" href="main.css">
-            </head>
-            <body>
-                <button onclick="location.href='../IT/it.html'">IT</button>
-                <button onclick="location.href='../Fitness/fitness.html'">Fitness</button>
-                <p></p>
-                <button onclick="window.open('../Data/CV_english.jpg', '_blank')">Curriculum ENG</button>
-                <button onclick="window.open('../Data/CV_pt.jpg', '_blank')">Curriculum PT</button>
-                
-            
-                <script src="point.js"></script>
-            </body>
-            </html>
-            
-        </div>
+  <div id="full-certificate-viewer" class="hidden">
+    <div class="certificate-carousel full-screen">
+      <button class="arrow left-arrow" onclick="scrollCertificates(-1)">&#10094;</button>
+      <div class="certificate-display" id="certificates-scroll">
+        <img src="../Data/MasterD_diploma.jpg" alt="MasterD Diploma">
+        <img src="../Data/whiteDwarfs.jpg" alt="whiteDwarfs">
+        <img src="../Data/whiteDwarfs (2).jpg" alt="whiteDwarfs">
+        <img src="../Data/ParticlePhysics.jpg" alt="ParticlePhysics">
+        <img src="../Data/ParticlePhysics2.jpg" alt="ParticlePhysics">
+        <img src="../Data/Leadership_page-0001.jpg" alt="Leadership Certificate">
+        <img src="../Data/Effective_Comunication_page-0001.jpg" alt="Effective Communication">
+        <img src="../Data/UnsolvedProblemsInCosmology.jpg" alt="UnsolvedProblemsInCosmology">
+        <img src="../Data/UnsolvedProblemsInCosmology2.jpg" alt="UnsolvedProblemsInCosmology">
+        <img src="../Data/TheFormationOfExoplanets.jpg" alt="TheFormationOfExoplanets">
+        <img src="../Data/TheFormationOfExoplanets2.jpg" alt="TheFormationOfExoplanets">
+        <img src="../Data/Critical_Thinking_page-0001.jpg" alt="Critical Thinking">
+        <img src="../Data/Certificate_phys1.jpg" alt="Phys1 Certificate">
+        <img src="../Data/TheScienceOfNuclearEnergy.jpg" alt="TheScienceOfNuclearEnergy">
+        <img src="../Data/TheScienceOfNuclearEnergy2.jpg" alt="TheScienceOfNuclearEnergy">
+      </div>
+      <button class="arrow right-arrow" onclick="scrollCertificates(1)">&#10095;</button>
+      <button class="close-btn" onclick="hideCertificates()">Close ✕</button>
     </div>
+  </div>
 
-    <footer>
-        <p>&copy; 2024 Francisco Duarte - Iron Taurus. All Rights Reserved.</p>
-    </footer>
+  <footer>
+    <p>&copy; 2024 Francisco Duarte - Iron Taurus. All Rights Reserved.</p>
+  </footer>
 
-    <script src="main.js"></script>
+  <script>
+    function showCertificates() {
+      document.getElementById('full-certificate-viewer').classList.remove('hidden');
+    }
+
+    function hideCertificates() {
+      document.getElementById('full-certificate-viewer').classList.add('hidden');
+    }
+
+    function scrollCertificates(direction) {
+      const container = document.getElementById('certificates-scroll');
+      const scrollAmount = 400;
+      container.scrollBy({
+        left: scrollAmount * direction,
+        behavior: 'smooth'
+      });
+    }
+  </script>
+
+  <script src="main.js"></script>
 </body>
 </html>

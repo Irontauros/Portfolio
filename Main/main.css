@@ -1,128 +1,194 @@
-
 body {
-    font-family: 'Roboto', sans-serif; /*fallback??? */
-    margin: 0; /* margin??? */
-    padding: 0; /* padding??? */
-    display: flex; /* Using flexbox for layout??? */
-    flex-direction: column; /* Arranging children elements vertically ???*/
-    min-height: 100vh; /* Ensuring the body takes at least the full viewport height??? */
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
     background: linear-gradient(to right, #d3b0ef, #333);
     color: #333;
 }
 
+/* Welcome Screen */
 #welcome-screen {
-    position: fixed; /* Fixing the position to the screen */
-    top: 0; /* Aligning the screen to the top */
-    left: 0; /* Aligning the screen to the left */
-    width: 100%; /* Making it take the full width of the viewport */
-    height: 100%; /* Making it take the full height of the viewport */
-    display: flex; /* Using flexbox to center content */
-    justify-content: center; /* Aligning content horizontally in the center */
-    align-items: center; /* Aligning content vertically in the center */
-    background: rgba(51, 51, 51, 0.9); /* Semi-transparent black background */
-    z-index: 9999; /* Ensuring it stays on top of other elements */
-    opacity: 1; /* Initial opacity */
-    animation: fadeOut 1s ease-in-out forwards 1s; /* Fading out after 3 seconds with a 3-second animation */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(51, 51, 51, 0.9);
+    z-index: 9999;
+    opacity: 1;
+    animation: fadeOut 1s ease-in-out forwards 3s;
 }
 
 #welcome-screen h1 {
-    color: white; 
-    font-size: 4em; /* em??? */
-    animation: fadeIn 2s ease-in-out, moveUp 2s ease-in-out 2s forwards; /*easy in out??? forwards??? */
+    color: white;
+    font-size: 4em;
+    animation: fadeIn 2s ease-in-out, moveUp 2s ease-in-out 2s forwards;
 }
 
 /* Menu Screen */
 #menu-screen {
-    display: none;  /* Initially hidden */
-    flex-direction: column; /* Arranging menu options vertically */
-    justify-content: center; /* Aligning content vertically in the center */
-    align-items: center; /* Aligning content horizontally in the center */
-    height: 100vh; /* Making the screen take full height */
-    text-align: center; /* Centering text */
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
 }
 
 #menu-screen.active {
-    display: flex;  /* Displaying the menu when the 'active' class is added */
+    display: flex;
 }
 
 #menu-screen h1 {
-    font-size: 3em; /* Setting a large font size for the heading */
-    margin-bottom: 30px; /* Adding space below the heading */
+    font-size: 3em;
+    margin-bottom: 30px;
 }
 
 .menu-options button {
-    margin: 10px; /* Spacing out the buttons */
-    padding: 15px 30px; /* Adding padding inside the buttons */
-    font-size: 1.5em; /* Increasing the font size */
-    background: #333; /* Dark background for the buttons */
-    color: #fff; /* White text color */
-    border: none; /* Removing the border */
-    border-radius: 5px; /* Rounded corners */
-    cursor: pointer; /* Changing cursor to pointer to indicate interactivity */
-    transition: transform 0.3s, background-color 0.3s; /* Adding smooth transition effects for scaling and color changes */
+    margin: 10px;
+    padding: 15px 30px;
+    font-size: 1.5em;
+    background: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s, background-color 0.3s;
 }
 
 .menu-options button:hover {
-    background: #d3b0ef; /* Light purple background on hover */
-    transform: scale(1.1); /* Slightly enlarging the button on hover */
+    background: #d3b0ef;
+    transform: scale(1.1);
 }
 
-/* Header and Portfolio */
-header {
-    position: sticky; /* Making the header stick to the top */
-    top: 0; /* Aligning it to the top of the viewport */
-    background: #333; /* Dark background for the header */
-    color: white; /* White text color */
-    padding: 20px 0; /* Vertical padding */
-    display: none; /* Initially hidden */
+/* Certificate Viewer Full Screen */
+#full-certificate-viewer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.95);
+    z-index: 10000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
-header.active {
-    display: block; /* Displaying the header when the 'active' class is added */
+#full-certificate-viewer.hidden {
+    display: none;
 }
 
-main {
-    display: none; /* Initially hiding the main content */
+.certificate-carousel {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
 }
 
-main.active {
-    display: block; /* Displaying the main content when the 'active' class is added */
+/* Scrollable image strip */
+.certificate-display {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+    gap: 40px;
+    padding: 40px;
+    width: 90%;
+    height: 90%;
+    box-sizing: border-box;
+}
+
+/* Images in the carousel */
+.certificate-display img {
+    height: 80vh;
+    flex-shrink: 0;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+    transition: transform 0.3s ease;
+}
+
+/* Hover zoom effect */
+.certificate-display img:hover {
+    transform: scale(1.05);
+}
+
+/* Arrows */
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 4em; /* Bigger size */
+    color: black;   /* Black arrows */
+    background: rgba(255, 255, 255, 0.7); /* Optional background for contrast */
+    border: none;
+    border-radius: 50%;
+    padding: 10px 20px;
+    cursor: pointer;
+    z-index: 10;
+    transition: transform 0.2s ease;
+}
+
+.arrow:hover {
+    transform: translateY(-50%) scale(1.1);
+}
+
+.left-arrow {
+    left: 30px;
+}
+
+.right-arrow {
+    right: 30px;
+}
+
+/* Close Button */
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 2em;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 20;
 }
 
 /* Footer */
 footer {
-    text-align: center; /* Centering the text */
-    background: black; /* Black background for the footer */
-    color: white; /* White text color */
-    padding: 20px; /* Padding around the footer content */
-    margin-top: auto; /* Pushing the footer to the bottom of the page */
+    text-align: center;
+    background: black;
+    color: white;
+    padding: 20px;
+    margin-top: auto;
 }
 
 /* Animations */
 @keyframes fadeIn {
-    0% {
-        opacity: 0; /* Starting from fully transparent */
-    }
-    100% {
-        opacity: 1; /* Ending fully opaque */
-    }
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 @keyframes fadeOut {
-    0% {
-        opacity: 1; /* Starting from fully opaque */
-    }
-    100% {
-        opacity: 0; /* Ending fully transparent */
-        visibility: hidden; /* Hiding the element completely */
+    from { opacity: 1; }
+    to {
+        opacity: 0;
+        visibility: hidden;
     }
 }
 
 @keyframes moveUp {
-    0% {
-        transform: translateY(0); /* Starting position */
-    }
-    100% {
-        transform: translateY(-50px); /* Moving the element 50px upwards */
-    }
+    from { transform: translateY(0); }
+    to { transform: translateY(-50px); }
 }
